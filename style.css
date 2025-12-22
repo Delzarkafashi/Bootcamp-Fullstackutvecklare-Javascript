@@ -1,4 +1,8 @@
-/* ========== Theme ========== */
+/* ========== Reset / base ========== */
+*, *::before, *::after{
+  box-sizing: border-box;
+}
+
 :root{
   --bg: #0b1220;
   --surface: #0f1a2e;
@@ -10,13 +14,12 @@
   --hover: rgba(94, 234, 212, 0.12);
 }
 
-/* ========== Layout (Grid) ========== */
 body.parent{
   margin: 0;
   min-height: 100vh;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: minmax(20px, auto) 1fr minmax(70px, auto);
+  grid-template-rows: minmax(20px, auto) 1fr minmax(120px, auto);
   background: var(--bg);
   color: var(--text);
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -25,9 +28,6 @@ body.parent{
 header { grid-area: 1 / 1 / 2 / 13; }
 main   { grid-area: 2 / 1 / 3 / 13; }
 footer { grid-area: 3 / 1 / 4 / 13; }
-
-/* ========== Global ========== */
-main, footer{ padding: 16px; }
 
 a{ color: var(--accent); }
 a:hover{ color: var(--accent-2); }
@@ -38,16 +38,14 @@ a:hover{ color: var(--accent-2); }
   top: 0;
   z-index: 1000;
 
-  padding: 16px 16px;
+  padding: 16px;
   background: rgba(15, 26, 46, 0.85);
   border-bottom: 1px solid var(--border);
   backdrop-filter: blur(8px);
   transition: padding 0.2s ease;
 }
 
-.site-header.is-small{
-  padding: 8px 16px;
-}
+.site-header.is-small{ padding: 8px 16px; }
 
 .header-inner{
   display: flex;
@@ -66,10 +64,8 @@ a:hover{ color: var(--accent-2); }
 .logo-mark{ font-size: 20px; }
 
 .menu{
-  display: flex;
-  gap: 14px;
+  margin-left: 16px;
 }
-
 .menu a{
   text-decoration: none;
   color: var(--text);
@@ -77,9 +73,7 @@ a:hover{ color: var(--accent-2); }
   border-radius: 6px;
 }
 
-.menu a:hover{
-  background: var(--hover);
-}
+.menu a:hover{ background: var(--hover); }
 
 .theme-toggle{
   border: 1px solid var(--border);
@@ -90,12 +84,80 @@ a:hover{ color: var(--accent-2); }
   cursor: pointer;
 }
 
-/* ========== Main ========== */
+/* ========== Main (centrerat) ========== */
 main{
-  min-height: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 16px;
 }
 
-/* ========== Footer ========== */
+/* ========== Form (kontakt) ========== */
+#contactForm{
+  width: 100%;
+  max-width: 520px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.field{ margin-bottom: 14px; }
+
+label{
+  display: block;
+  margin-bottom: 6px;
+  text-align: left;
+}
+
+input, textarea{
+  width: 100%;
+  max-width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.02);
+  color: inherit;
+  outline: none;
+}
+
+textarea{
+  resize: vertical; /* stoppar sidled-resize som kan spräcka layouten */
+}
+
+input:focus, textarea:focus{
+  border-color: var(--accent);
+}
+
+button{
+  display: block;
+  margin: 12px auto 0;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+button:hover{
+  border-color: var(--accent);
+}
+
+.error{
+  display: block;
+  margin-top: 6px;
+  text-align: left;
+  color: #ffb4b4;
+}
+
+.status{
+  margin-top: 12px;
+  text-align: center;
+  color: var(--accent);
+}
+
+/* ========== Footer (center + 3 kolumner) ========== */
 .site-footer{
   border-top: 1px solid var(--border);
   padding: 16px;
@@ -117,9 +179,7 @@ main{
   align-items: center;
 }
 
-.footer-col h3{
-  margin: 0 0 8px;
-}
+.footer-col h3{ margin: 0 0 8px; }
 
 .footer-col a{
   text-decoration: none;
@@ -140,6 +200,5 @@ main{
 }
 
 @media (max-width: 700px){
-  
   .footer-grid{ grid-template-columns: 1fr; }
 }
