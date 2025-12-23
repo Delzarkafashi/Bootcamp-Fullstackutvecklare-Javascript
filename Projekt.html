@@ -26,11 +26,18 @@
     </div>
   </header>
 
-
-  <main>
+    <main>
     <h1>Projekt</h1>
-    <p>Här kommer innehållet för sidan.</p>
-  </main>
+
+    <div class="filters">
+        <button type="button" class="filter-btn" data-filter="all">Alla</button>
+        <button type="button" class="filter-btn" data-filter="webb">Webb</button>
+        <button type="button" class="filter-btn" data-filter="skola">Skola</button>
+        <button type="button" class="filter-btn" data-filter="fritid">Fritid</button>
+    </div>
+
+    <section id="projectsGrid" class="projects-grid"></section>
+    </main>
 
   <footer class="site-footer">
     <div class="footer-grid">
@@ -61,6 +68,7 @@
   </footer>
 
   <script src="script.js"></script>
+  <script src="projects.js"></script>
 
 </body>
 </html>
