@@ -3,7 +3,7 @@
   --bg: #0b1220;
   --surface: #0f1a2e;
   --text: #e6edf7;
-  --muted: #a9b6cc;
+  --muted: #b9c6dd;
   --border: #22314f;
   --accent: #5eead4;
   --accent-2: #60a5fa;
@@ -80,6 +80,12 @@ a:hover{ color: var(--accent-2); }
 .menu a:hover{
   background: var(--hover);
 }
+/* markera aktiv navigationslänk*/
+.menu a.active{
+  background: var(--hover);
+  border: 1px solid var(--border);
+}
+
 
 .theme-toggle{
   border: 1px solid var(--border);
@@ -290,6 +296,25 @@ textarea{
   display: block;
 }
 
+/*texten syns inte för ögat, men skärmläsare kan läsa den.*/
+.sr-only{
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/*fokusmarkering när man tabbar*/
+a:focus-visible,
+button:focus-visible{
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
 
 
 @media (max-width: 700px){

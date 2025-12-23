@@ -12,9 +12,9 @@ const hero = document.querySelector("#homeHero");
 if (hero) {
     hero.innerHTML = `
     <div class="hero">
-        <img class="hero-img" src="jag och mat 2.png" alt="Bild på Loqman" />
+        <img class="hero-img" src="jag och mat 2.png" alt="Porträtt på Delzar Kafashi">
 
-        <h1>${heroData.name}</h1>
+        <h2>${heroData.name}</h2>
         <p class="hero-role">${heroData.role}</p>
         <p class="hero-intro">${heroData.intro}</p>
 
